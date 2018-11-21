@@ -1,0 +1,70 @@
+<head>
+    <style>
+        th{ 
+    padding: 10px;
+    background-color: orangered;
+    color:black;
+        }
+        .new{
+            color: black;
+        }
+        .new:hover{
+            color: white;
+        }
+    </style>
+</head>
+<body ng-app='newangularprojectApp'>
+    <!----div>
+        <input type="text" ng-model="name" >
+        <button ng-click="save()">Save</button>
+        <button ng-click="load()">Load</button>
+        <br>
+        {{data}}
+    </div--->
+    <p></p>
+    <!----form>
+        <div class="form-group">
+                <label for="time">Enter your Name</label>
+                <input type="text" class="form-control" ng-model="name" >
+        </div>
+        <div class="form-group">
+                <label for="time">Click To Save Data:</label>
+                <button class=" btn" ng-click="save()">Save</button>
+                &nbsp; &nbsp; &nbsp; &nbsp;
+                <label for="time">Click To Load Data:</label>
+                <button class=" btn" ng-click="load()">Load</button>
+        </div>
+        <div class="form-group" >
+
+        </div>
+        <hr>
+        <div class="form-group">
+                <label for="time">Click To Count:</label>
+                <button ng-click="clickCounter()" class="btn" type="button">Click me!</button>
+        </div>
+    </form-->
+    <!-- <button ng-click="displaydata()">ClickMe</button> -->
+    <div class="container">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>&nbsp;&nbsp;<a class="new" ng-model="new" ng-click="displaydata()">new</a>  &nbsp;&nbsp;
+                    |&nbsp;&nbsp;<a class="new" ng-href="#">commment</a>
+                    &nbsp;&nbsp;|&nbsp;&nbsp;<a class="new" ng-href="#">show</a>
+                    &nbsp;&nbsp;|&nbsp;&nbsp;<a class="new" ng-href="#">ask</a>
+                    &nbsp;&nbsp;|&nbsp;&nbsp;<a class="new" ng-href="#">job</a>
+                  </th>
+                
+                </tr>
+              </thead>
+              <tbody >
+                    <div ng-repeat="tem_id in temp"  ng-if="$index < 3" >
+                        <div >{{nextdatafromid(tem_id);}}</div>
+                    </div>
+                    <tr  >
+                        
+                    </tr>
+              </tbody>
+              </table>
+    </div>
+</body>
