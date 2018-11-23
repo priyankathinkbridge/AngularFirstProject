@@ -14,7 +14,7 @@ app.factory('getuseridarrayservice',function($http){
             getuserdatabyid:function(userid){
                 var datatodisplay=[];
                 var useridarray;
-                for(  i=0; i<=11; i++){
+                for(  i=0; i<11; i++){
                 $http.get('https://hacker-news.firebaseio.com/v0/item/' + userid[i]+ '.json').then(function(response){
                 useridarray=response.data;    
                 datatodisplay.push(useridarray);
