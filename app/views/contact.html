@@ -66,14 +66,9 @@
                 </tr>
                 </thead>
                 <tbody>
-                    <!--div class="row" ng-repeat="data in datatodisplay" >
-                      
-                          {{data.title}}
-                    
-                        </div-->
                     <tr ng-repeat="data in datatodisplay | limitTo:limit" class="datatodisplay" >
                         
-                            <td><a ng-href="{{data.url }}" target="blank"> {{data.title}}({{data.url }})</a>
+                            <td><a ng-href="{{data.url }}" target="blank"> {{data.title}}</a>
                                 <br>{{data.score}}point{{geturl(data.url)}}
                                 by &nbsp;
                                 <a class="user" ng-model="new" ng-href="#!/userdetail/{{data.by}}">{{data.by}}</a>
