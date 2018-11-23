@@ -16,10 +16,7 @@ angular.module('newangularprojectApp')
     //...
   }
 })
-.controller('AboutCtrl',function($scope,$http){
-})
-
-.controller('ContactCtrl',function($scope,$http, $rootScope,getuseridarray){
+.controller('ContactCtrl',function($scope,$http, $rootScope){
  $scope.limit=11;
  $scope.loadMore = function() {
 var increamented = $scope.limit + 11;
@@ -38,8 +35,8 @@ var increamented = $scope.limit + 11;
         $scope.datatodisplay=[];
         for(  i=0; i<=item_id.length; i++){
           $http.get('https://hacker-news.firebaseio.com/v0/item/' + item_id[i]+ '.json').then(function(response){
-            var userdatafromid=response.data;    
-          $scope.datatodisplay.push(userdatafromid);
+            var useridarray=response.data;    
+          $scope.datatodisplay.push(useridarray);
         })
         }   
       }
@@ -51,16 +48,9 @@ var increamented = $scope.limit + 11;
      
             $http.get('https://hacker-news.firebaseio.com/v0/user/' +username +'.json').then(function(response){
             $scope.userdata=response.data;
-            console.log( $scope.userdata);
+          //  console.log( $scope.userdata);
         })
       }
-      $scope.getidarray=function(){
-        getuseridarray.async().then(function(responce){
-          $scope.userids=responce.data;
-          console.log( $scope.userids);
-        })
-        
-      }
-      $scope.getidarray();
+   /*   */
 })
  

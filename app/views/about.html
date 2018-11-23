@@ -1,4 +1,55 @@
-<body ng-app="newangularprojectApp">
-    <button ng-click="displaydata()">ClickMe</button>
+<html>
+    <head>
+            <style>
+                    th{ 
+                padding: 10px;
+                background-color: orangered;
+                color:black;
+                    }
+                    .new{
+                        color: black;
+                    }
+                    .new:hover{
+                        color: white;
+                    }
+                    k{
+                        color: black;
+                    }
+                    user
+                    {
+                        text-decoration: underline;
+                        cursor: context-menu;
+                    }
+                </style>
+    </head>
+<body ng-app="newangularprojectApp" >
+        <div class="container">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>&nbsp;&nbsp;<a class="new" ng-model="new" ng-init="displaydata()">new</a>  &nbsp;&nbsp;
+                        |&nbsp;&nbsp;<a class="new" ng-href="#">commment</a>
+                        &nbsp;&nbsp;|&nbsp;&nbsp;<a class="new" ng-href="#">show</a>
+                        &nbsp;&nbsp;|&nbsp;&nbsp;<a class="new" ng-href="#">ask</a>
+                        &nbsp;&nbsp;|&nbsp;&nbsp;<a class="new" ng-href="#">job</a>
+                      </th>
+                    
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="data in temp "  >
+                            
+                                <td><a ng-href="{{data.url }}" target="blank"> {{data.title}}</a>
+                                    <br>{{data.score}}point
+                                    by &nbsp;
+                                    <a class="user" ng-model="new"ng-href="#!/userdetail/{{data.by}}" >{{data.by}}</a>
+                                  at &nbsp;{{data.time| date:"MMM d, y h:mm:ss a"}}&nbsp;
+                                </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                    <!-- <button style="width:120px;text-align:center;margin:auto" class="more btn btn-primary btn-block" ng-click="loadMore()">Load More!</button> -->
+        </div>
 </body>
 
+</html>
