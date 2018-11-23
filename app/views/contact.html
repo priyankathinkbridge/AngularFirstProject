@@ -11,18 +11,26 @@
         .new:hover{
             color: white;
         }
+        k{
+            color: black;
+        }
+        user
+        {
+            text-decoration: underline;
+            cursor: context-menu;
+        }
     </style>
 </head>
 <body ng-app='newangularprojectApp'>
-    <!----div>
+    <!--div>
         <input type="text" ng-model="name" >
         <button ng-click="save()">Save</button>
         <button ng-click="load()">Load</button>
         <br>
         {{data}}
-    </div--->
+    </div->
     <p></p>
-    <!----form>
+    <!form>
         <div class="form-group">
                 <label for="time">Enter your Name</label>
                 <input type="text" class="form-control" ng-model="name" >
@@ -48,7 +56,7 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th>&nbsp;&nbsp;<a class="new" ng-model="new" ng-click="displaydata()">new</a>  &nbsp;&nbsp;
+                  <th>&nbsp;&nbsp;<a class="new" ng-model="new" ng-init="displaydata()">new</a>  &nbsp;&nbsp;
                     |&nbsp;&nbsp;<a class="new" ng-href="#">commment</a>
                     &nbsp;&nbsp;|&nbsp;&nbsp;<a class="new" ng-href="#">show</a>
                     &nbsp;&nbsp;|&nbsp;&nbsp;<a class="new" ng-href="#">ask</a>
@@ -56,15 +64,24 @@
                   </th>
                 
                 </tr>
-              </thead>
-              <tbody >
-                    <div ng-repeat="tem_id in temp"  ng-if="$index < 3" >
-                        <div >{{nextdatafromid(tem_id);}}</div>
-                    </div>
-                    <tr  >
+                </thead>
+                <tbody>
+                    <!--div class="row" ng-repeat="data in datatodisplay" >
+                      
+                          {{data.title}}
+                    
+                        </div-->
+                    <tr ng-repeat="data in datatodisplay | limitTo:limit" class="datatodisplay" >
                         
+                            <td><a ng-href="{{data.url }}" target="blank"> {{data.title}}({{data.url }})</a>
+                                <br>{{data.score}}point{{geturl(data.url)}}
+                                by &nbsp;
+                                <a class="user" ng-model="new" ng-href="#!/userdetail/{{data.by}}">{{data.by}}</a>
+                                at &nbsp;{{time(data.time)}}&nbsp;
+                            </td>
                     </tr>
-              </tbody>
-              </table>
+                </tbody>
+                </table>
+                <button style="width:120px;text-align:center;margin:auto" class="more btn btn-primary btn-block" ng-click="loadMore()">Load More!</button>
     </div>
 </body>

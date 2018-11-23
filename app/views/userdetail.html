@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <style>
+            table{
+                background-color:antiquewhite;           }
+        </style>
+    </head>
+    <body ng-app='newangularprojectApp' >
+            <div class="container">
+    <h3>User {{userdata.id | uppercase}} Information</h3>
+     <table class="table">
+         <tr >
+             <td>User : &nbsp;{{userdata.id}}</td>
+         </tr>
+         <tr>
+                <td>Karma : &nbsp;{{userdata.karma}}</td>
+         </tr>
+         <tr>
+                <td>About: &nbsp;{{userdata.about}}</td>
+         </tr>
+
+         <tr>
+            <td>CreatedOn: &nbsp;{{showmonth(userdata.created)}} &nbsp;&nbsp; </td>
+     </tr>
+     </table>
+     </div>
+    </body>
+</html>

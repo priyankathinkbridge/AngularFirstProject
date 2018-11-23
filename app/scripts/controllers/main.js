@@ -32,7 +32,37 @@ angular.module('newangularprojectApp')
                 })
   }    */
 })
-.controller('ContactCtrl',function($scope,$http){
+.controller('UserCtrl',function($http,$scope,$route, $routeParams){
+  console.log("jhgjhghjghj");
+  $scope.userdisplaydata=[];
+  var param=$routeParams.by;
+ // console.log(param);
+ 
+ $http.get('https://hacker-news.firebaseio.com/v0/user/' +param +'.json').then(function(response){
+  $scope.userdata=response.data;
+  //console.log( $scope.userdata);
+ // $scope.userdisplaydata.push($scope.userdata); 
+})
+  $scope.showmonth=function(timestamp){
+    var date = new Date(timestamp * 1000);
+    var dateObject = date.getFullYear() +'/'+ ('0' + (date.getMonth() + 1)).slice(-2) +'/'+ ('0' + date.getDate()).slice(-2);
+    var datec = new Date();
+   // var currnetmonth=datec.getMonth();
+  //  var createdmonth=(date.getMonth() + 1);
+   // var totalmonth=currnetmonth-createdmonth;
+   // console.log(totalmonth);
+   // console.log(currnetmonth);
+   // console.log(createdmonth);
+    return dateObject;
+  }
+})
+.controller('ContactCtrl',function($scope,$http, $rootScope,userData){
+  $scope.dataarray=[];
+ $scope.limit=11;
+ $scope.loadMore = function() {
+  $scope.increamented = $scope.limit + 11;
+  $scope.limit = $scope.increamented > $scope.datatodisplay.length ? $scope.datatodisplay.length : $scope.increamented;
+}
     /*$scope.addTOLocal=function(){
       var storageType = localStorageService.getStorageType();
       console.log(storageType);
@@ -73,32 +103,64 @@ angular.module('newangularprojectApp')
         $scope.data =localStorage.message;
        console.log("your Name"+"  "+$scope.data);
       }
+      $scope.geturl=function(url){
+
+      }
       $scope.clickCounter=function(){
         localStorage.clickcount = Number(localStorage.clickcount)+1;
         console.log( localStorage.clickcount);
       }
       $scope.displaydata=function(){
-        console.log("kjhkjhjk");
+      //  console.log("kjhkjhjk");
         $http.get('https://hacker-news.firebaseio.com/v0/newstories.json').then(function(response){
                         $scope.temp=response.data;
                        // console.log($scope.temp);
-                       $scope.nextdatafromid(response.data);
+                       $scope.nextdatafromid( $scope.temp);
                     })
+                  
                  }
-      $scope.dataarray={};
+   $scope.time=function(s)
+   {
+    return new Date(s * 1e3).toISOString().slice(-13, -5);
+   }
      $scope.nextdatafromid=function(item_id){
        // console.log(item_id);
-       //$scope.newArr = {};
+        //$scope.newArr = {};
         //console.log(item_id.length);
-        //$scope.i=0;
-        //$scope.datatodisplay=[];
-        //for($scope.i;$scope.i<=10;$scope.i++){
-          $http.get('https://hacker-news.firebaseio.com/v0/item/' + item_id+ '.json').then(function(response){
+       $scope.i=0;
+        $scope.datatodisplay=[];
+        for(  $scope.i=0;  $scope.i<=item_id.length;  $scope.i++){
+          $http.get('https://hacker-news.firebaseio.com/v0/item/' + item_id[  $scope.i]+ '.json').then(function(response){
             $scope.mydata=response.data;
-           console.log($scope.mydata);
-           // $scope.dataarray= $scope.mydata;
+           // console.log($scope.mydata);
+           //$scope.mydata1=response.data.by;
+         //  $scope.dataarray.push( $scope.mydata1);
+          
+          $scope.datatodisplay.push($scope.mydata);
         })
-        //}   
+       
+        }   
+     //  userData.userDataDisplay( $scope.dataarray);
+        /*for(var x = 0; x < $scope.datatodisplay.length; x++){
+          $scope.datatodisplay[x] = JSON.parse($scope.datatodisplay[x]);
+        }*/
+        // service to get data 
+        //$scope.dssdf= userData.userDataDisplay( $scope.dataarray);
+     //console.log( $scope.dssdf)  
+       // console.log( $scope.dataarray)    
+      //  console.log( $scope.datahta);
+      }
+    $scope.showpath=function(path)
+    {
+      window.open(path, '_blank');
+    }
+     //console.log(  $rootScope.usernameall);
+      $scope.displayUser=function(username){
+     
+            $http.get('https://hacker-news.firebaseio.com/v0/user/' +username +'.json').then(function(response){
+            $scope.userdata=response.data;
+            console.log( $scope.userdata);
+        })
       }
 })
  
