@@ -1,15 +1,11 @@
 var app=angular.module('newangularprojectApp')
-app.factory('userData',function(){
-    var usernameall=[];
+app.factory('getuseridarray',function($http){
+  
     return{
-        userDataDisplay:function(username){
-        
-              usernameall.push(username);
-              return usernameall;
-        },
-        getData:function()
-        {
-            return usernameall;
+        async:function(){
+            return  $http.get('https://hacker-news.firebaseio.com/v0/newstories.json').then(function(response){
+                return response
+            })
         }
     }
   })

@@ -19,7 +19,7 @@ angular.module('newangularprojectApp')
 .controller('AboutCtrl',function($scope,$http){
 })
 
-.controller('ContactCtrl',function($scope,$http, $rootScope,userData){
+.controller('ContactCtrl',function($scope,$http, $rootScope,getuseridarray){
  $scope.limit=11;
  $scope.loadMore = function() {
 var increamented = $scope.limit + 11;
@@ -32,7 +32,7 @@ var increamented = $scope.limit + 11;
                        $scope.nextdatafromid( $scope.userIdArray);
                     })
                   
-                 }
+      }
      $scope.nextdatafromid=function(item_id){;
        var i=0;
         $scope.datatodisplay=[];
@@ -54,5 +54,13 @@ var increamented = $scope.limit + 11;
             console.log( $scope.userdata);
         })
       }
+      $scope.getidarray=function(){
+        getuseridarray.async().then(function(responce){
+          $scope.userids=responce.data;
+          console.log( $scope.userids);
+        })
+        
+      }
+      $scope.getidarray();
 })
  
