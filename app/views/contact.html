@@ -72,7 +72,7 @@
                                 <br>{{data.score}}point{{geturl(data.url)}}
                                 by &nbsp;
                                 <a class="user" ng-model="new" ng-href="#!/userdetail/{{data.by}}">{{data.by}}</a>
-                                at &nbsp;{{time(data.time)}}&nbsp;
+                                at &nbsp;{{data.time| date:"MMM d, y h:mm:ss a"}}&nbsp;
                             </td>
                     </tr>
                 </tbody>

@@ -33,10 +33,6 @@ var increamented = $scope.limit + 11;
                     })
                   
                  }
-   $scope.time=function(s)
-   {
-    return new Date(s * 1e3).toISOString().slice(-13, -5);
-   }
      $scope.nextdatafromid=function(item_id){;
        var i=0;
         $scope.datatodisplay=[];
