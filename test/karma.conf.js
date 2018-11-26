@@ -32,6 +32,9 @@ module.exports = function(config) {
       'bower_components/ag-grid-enterprise/main.js',
       'bower_components/angular-local-storage/dist/angular-local-storage.js',
       'bower_components/ngstorage/ngStorage.js',
+      'bower_components/moment/moment.js',
+      'bower_components/angular-momentjs/angular-momentjs.js',
+      'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',

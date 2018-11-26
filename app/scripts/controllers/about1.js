@@ -1,7 +1,7 @@
 angular.module('newangularprojectApp')
 .controller('AboutCtrl',function($scope,getuserdetailservice,getuseridarrayservice){
   var countid;
-    $scope.getidarray=function(){
+    var getidarray=function(){
       getuseridarrayservice.getid().then(function(responce){
         $scope.userids=responce.data;
         var countidarray=[];
@@ -12,8 +12,9 @@ angular.module('newangularprojectApp')
       })
       
     }
+    $scope.temp=[]
     $scope.getuserfromid=function(userid){
-        $scope.temp=getuserdetailservice.getuserdatabyid(userid);
+        getuserdetailservice.getuserdatabyid(userid,$scope.temp);
     }
     $scope.loadmoredata=function(){
       var nextueridarray=[];
@@ -24,13 +25,21 @@ angular.module('newangularprojectApp')
       }
       else
       {
-        $scope.getuserfromid( countidarray);
+        // $scope.getuserfromid( countidarray);
       }
       for(var anothercountid=countid;anothercountid<limit;anothercountid++){
         nextueridarray.push($scope.userids[anothercountid]);
+        countid++;
       }
       $scope.getuserfromid(nextueridarray );
   }
-    $scope.getidarray();
+    getidarray();
+    $scope.timeshow=function(someDate)
+    {
+     var date = new Date(someDate* 1000);
+     var dateObject=date.getDate()+1;
+     var dateText = moment(dateObject).from(new Date());
+     return dateText;
+    }
    
   })

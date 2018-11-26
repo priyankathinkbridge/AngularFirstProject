@@ -10,19 +10,13 @@
 
 angular.module('newangularprojectApp')
 .controller('MainCtrl',function($scope, localStorageService){
-  var storageType = localStorageService.getStorageType();
-  console.log(storageType);
-  if(localStorageService.isSupported) {
-    //...
-  }
 })
 .controller('ContactCtrl',function($scope,$http, $rootScope){
  $scope.limit=11;
  $scope.loadMore = function() {
 var increamented = $scope.limit + 11;
   $scope.limit = increamented > $scope.datatodisplay.length ? $scope.datatodisplay.length : increamented;
-}
-    
+}   
       $scope.displaydata=function(){
         $http.get('https://hacker-news.firebaseio.com/v0/newstories.json').then(function(response){
                         $scope.userIdArray=response.data;

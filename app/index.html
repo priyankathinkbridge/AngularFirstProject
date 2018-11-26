@@ -16,11 +16,6 @@
     <!-- endbuild -->
   </head>
   <body ng-app="newangularprojectApp">
-    <!--[if lte IE 8]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-
-    <!-- Add your site or application content here -->
     <div class="header">
       <div class="navbar navbar-default" role="navigation">
         <div class="container">
@@ -42,6 +37,7 @@
               <li ><a href="#/">Home</a></li>
               <li><a ng-href="#!/about">About</a></li>
               <li><a ng-href="#!/contact">Contact</a></li>
+              <li style="margin-left: 100px" >Login</a></li>
             </ul>
           </div>
         </div>
@@ -84,6 +80,9 @@
     <script src="bower_components/ag-grid-enterprise/main.js"></script>
     <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
     <script src="bower_components/ngstorage/ngStorage.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/angular-momentjs/angular-momentjs.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -95,6 +94,8 @@
         <script src="scripts/controllers/service.js"></script>
         <script  src="scripts/controllers/user.js"></script>
         <script src="scripts/controllers/about1.js"></script>
+        <script src="scripts/controllers/comment.js"></script>
+        <script src="scripts/controllers/uicomponent.js"></script>
         <!-- endbuild -->
 </body>
 </html>

@@ -17,7 +17,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'LocalStorageModule',
-    'ngStorage'
+    'ngStorage',
+    'ui.bootstrap'
   
   ])
   .config(function ($routeProvider) {
@@ -41,6 +42,12 @@ angular
         templateUrl: 'views/userdetail.html',
         controller: 'UserCtrl',
         controllerAs: 'user'
+      })
+    
+      .when('/comment/:id', {
+        templateUrl: 'views/userdetail.html',
+        controller: 'CommentCtrl',
+        controllerAs: 'comment'
       })
       .otherwise({
         redirectTo: '/'
