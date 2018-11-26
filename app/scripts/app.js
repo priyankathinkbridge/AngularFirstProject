@@ -38,6 +38,11 @@ angular
         controller: 'ContactCtrl',
         controllerAs: 'contact'
       })
+      .when('/login', {
+        templateUrl: 'views/first.html',
+        controller: 'LoginCtrl',
+        controllerAs: 'login'
+      })
       .when('/userdetail/:by', {
         templateUrl: 'views/userdetail.html',
         controller: 'UserCtrl',

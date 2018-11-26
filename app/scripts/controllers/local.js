@@ -47,4 +47,7 @@
         localStorage.clickcount = Number(localStorage.clickcount)+1;
         console.log( localStorage.clickcount);
       }*/
- 
+      angular.module('newangularprojectApp')
+      .controller('LoginCtrl',function($scope){
+          $scope.
+      })
